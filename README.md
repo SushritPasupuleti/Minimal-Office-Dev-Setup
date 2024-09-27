@@ -12,9 +12,42 @@ Features:
 
 - Full language support (Python, Node, Java, C++, etc.) with the right tools.
 
-## Switching OS/Architectures
+# Table of contents
+1. [Minimal Office Dev Setup](#minimal-office-dev-setup)
+   1. [Prerequisites](#prerequisites)
+      1. [Switching OS/Architectures](#switching-os/architectures)
+         1. [Using the switcher script](#using-the-switcher-script)
+         2. [Manually updating the flake.nix file](#manually-updating-the-flake.nix-file)
+   2. [Setup](#setup)
+   3. [Updates](#updates)
+
+## Prerequisites
+
+### Switching OS/Architectures
 
 By default the script is configured to work on x86 Linux, however you can change platforms by doing the following:
+
+#### Using the switcher script
+
+Run the [switcher.sh](switcher.sh) script to switch between platforms.
+
+```bash
+chmod +x switcher.sh
+./switcher.sh <os-arch>
+```
+
+Where `<os-arch>` is the desired platform. The supported platforms are:
+
+```
+x86_64-linux # 64-bit Intel/AMD linux
+aarch64-linux # 64-bit ARM Linux
+x86_64-darwin # 64-bit Intel MacOS
+aarch64-darwin # 64-bit ARM MacOS
+```
+
+Note, this script only works for the first time when switching platforms. For subsequent switches, you need to manually update the [flake.nix](nix/flake.nix) file.
+
+#### Manually updating the flake.nix file
 
 Replace `x86_64-linux` with the desired platform in the [flake.nix](nix/flake.nix) file. The supported platforms and their corresponding keywords are:
 
