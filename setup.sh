@@ -36,7 +36,7 @@ echo $(success "Nix installed successfully!")
 
 mkdir -p ~/.config/nix
 
-cp -fr "$(pwd -P)"/nixos/hosts/mac/flake.nix ~/.config/nix/
+cp -fr "$(pwd -P)"/nix/flake.nix ~/.config/nix/
 echo $(success "Finished copying flake.nix to ~/.config/nix")
 echo 
 # echo $(info "Run \`nix profile install .\` to install the flake for the first time")
