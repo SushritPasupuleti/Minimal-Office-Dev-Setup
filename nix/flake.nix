@@ -53,6 +53,7 @@
         nil
         nixpkgs-fmt
         #utils
+		ffmpeg_6-full
         lsof
         gum
         glow
