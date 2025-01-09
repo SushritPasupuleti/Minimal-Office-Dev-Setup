@@ -17,7 +17,7 @@
         git
         git-credential-manager
         glab
-		gh
+        gh
         vim
         neovim
         tmux
@@ -54,7 +54,7 @@
         nil
         nixpkgs-fmt
         #utils
-		ffmpeg_6-full
+        ffmpeg_6-full
         lsof
         gum
         glow
@@ -105,6 +105,10 @@
         pgcli
         pgadmin4
         kafkactl
+        #LSPs
+        tailwindcss-language-server
+        htmx-lsp
+        lua-language-server
       ];
     };
   };
