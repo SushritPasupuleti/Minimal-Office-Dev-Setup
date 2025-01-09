@@ -17,6 +17,7 @@
         git
         git-credential-manager
         glab
+		gh
         vim
         neovim
         tmux
