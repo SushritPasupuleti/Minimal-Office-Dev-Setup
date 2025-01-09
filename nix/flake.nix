@@ -27,7 +27,7 @@
         delta
         fastfetch
         starship
-        nerdfonts
+        # nerdfonts
         # langs
         go
         golangci-lint
