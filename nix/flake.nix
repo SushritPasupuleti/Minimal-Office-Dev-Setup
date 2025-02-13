@@ -16,6 +16,8 @@
       paths = with pkgs; [
         git
         git-credential-manager
+		direnv
+		nix-direnv
         glab
         gh
         vim
