@@ -107,6 +107,7 @@
         pgcli
         pgadmin4
         kafkactl
+		dvc
         #LSPs
         tailwindcss-language-server
         htmx-lsp
