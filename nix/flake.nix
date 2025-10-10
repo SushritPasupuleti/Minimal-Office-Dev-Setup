@@ -38,6 +38,7 @@
         pyenv
         python3
         python3Packages.pip
+		uv
         pipx
         poetry
         fnm
