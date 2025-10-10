@@ -92,6 +92,7 @@
         fishPlugins.done
         fishPlugins.fzf-fish
         # tools
+		borgbackup
         docker
         ktunnel
         airlift

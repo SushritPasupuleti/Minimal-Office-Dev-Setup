@@ -12,6 +12,8 @@ Features:
 
 - Full language support (Python, Node, Java, C++, etc.) with the right tools.
 
+- Backups with [borg](https://borgbackup.readthedocs.io/en/stable/)
+
 # Table of contents
 1. [Minimal Office Dev Setup](#minimal-office-dev-setup)
    1. [Prerequisites](#prerequisites)
@@ -110,3 +112,15 @@ sudo ./setup.sh
 ```
 
 Follow the instructions in the script to install the necessary packages.
+
+## Backups
+
+The setup uses [borg](https://borgbackup.readthedocs.io/en/stable/) for backups.
+
+A script [borgbackup.sh](borgbackup.sh) is provided to backup the `~/code` directory locally. Usage instructions are provided in the script and you can view them by just running the script without any arguments.
+
+```bash
+chmod +x borgbackup.sh
+./borgbackup.sh
+```
+
