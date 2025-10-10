@@ -121,6 +121,14 @@ A script [borgbackup.sh](borgbackup.sh) is provided to backup the `~/code` direc
 
 ```bash
 chmod +x borgbackup.sh
+chmod +x backuplist.sh
 ./borgbackup.sh
 ```
 
+Make sure to backup your folders everyday to avoid data loss. You may create a cron job to automate the backups. There is a file that you can edit to automatically run bulk backups [backuplist.sh](backuplist.sh). Edit the `PROJECTS` variable to add/remove folders to be backed up. So that they can be backed up in one go.
+
+You can add a cron job to run the `backuplist.sh` script everyday at a specific time. For example, to run the script everyday at 12PM, add the following line to your crontab file:
+
+```bash
+0 12 * * * <path-to>/backuplist.sh
+```
