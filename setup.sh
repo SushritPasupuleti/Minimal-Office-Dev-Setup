@@ -34,11 +34,32 @@ echo $(info "Installing Nix...")
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 echo $(success "Nix installed successfully!")
 
+echo $(info "Installing developer tools...")
+echo $(info "Installing pyenv...")
+curl -fsSL https://pyenv.run | bash
+echo $(success "pyenv installed successfully!")
+
+echo $(info "Installing Poetry...")
+curl -sSL https://install.python-poetry.org | python3 -
+echo $(success "Poetry installed successfully!")
+
 mkdir -p ~/.config/nix
 
-cp -fr "$(pwd -P)"/nix/flake.nix ~/.config/nix/
+if [[ "$OSTYPE" =~ ^darwin ]]
+then
+	echo $(info "Detected macOS operating system")
+	echo $(info "Installing Homebrew...")
+	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+	echo $(success "Homebrew installed successfully!")
+
+	cp -fr "$(pwd -P)"/nix/hosts/linux/flake.nix ~/.config/nix/
+else
+	echo $(info "Detected Linux operating system")
+	cp -f "$(pwd -P)"/nix/hosts/mac/flake.nix ~/.config/nix/
+fi
+
 echo $(success "Finished copying flake.nix to ~/.config/nix")
 echo 
-echo $(info "Run \'cd nix\` to change directory to the nix folder")
+echo $(info "Run \'cd ~/.config/nix\` to change directory to the nix folder")
 echo $(info "Run \`nix profile install .\` to install the flake for the first time")
 echo $(info "Run \`nix profile upgrade --all\` to upgrade the existing flake")
