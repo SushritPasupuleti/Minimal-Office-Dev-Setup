@@ -8,7 +8,7 @@
 
     packages.aarch64-darwin.default = let
       pkgs = import nixpkgs {
-        system = "x86_64-linux";
+        system = "aarch64-darwin";
         config.allowUnfree = true;
       };
     in pkgs.buildEnv {
@@ -56,7 +56,7 @@
         nil
         nixpkgs-fmt
         #utils
-        ffmpeg_6-full
+        # ffmpeg_6-full
         lsof
         gum
         glow
@@ -89,17 +89,17 @@
         fx
         cloc
         fish
-        fishPlugins.done
-        fishPlugins.fzf-fish
+        # fishPlugins.done
+        # fishPlugins.fzf-fish
         # tools
-        docker
+        # docker
         ktunnel
         airlift
         datree
         kind
         kubectl
         kubectx
-        k9s
+        # k9s
         kubernetes-helm
         gnumake
         putty
