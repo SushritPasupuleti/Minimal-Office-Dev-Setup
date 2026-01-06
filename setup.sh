@@ -52,10 +52,10 @@ then
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	echo $(success "Homebrew installed successfully!")
 
-	cp -fr "$(pwd -P)"/nix/hosts/linux/flake.nix ~/.config/nix/
+	cp -fr "$(pwd -P)"/nix/hosts/mac/flake.nix ~/.config/nix/
 else
 	echo $(info "Detected Linux operating system")
-	cp -f "$(pwd -P)"/nix/hosts/mac/flake.nix ~/.config/nix/
+	cp -f "$(pwd -P)"/nix/hosts/linux/flake.nix ~/.config/nix/
 fi
 
 echo $(success "Finished copying flake.nix to ~/.config/nix")
