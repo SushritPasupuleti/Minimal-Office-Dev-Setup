@@ -53,6 +53,8 @@ then
 	echo $(success "Homebrew installed successfully!")
 
 	cp -fr "$(pwd -P)"/nix/hosts/mac/flake.nix ~/.config/nix/
+
+	echo $(info "Run \`brew.sh\` to install Homebrew packages")
 else
 	echo $(info "Detected Linux operating system")
 	cp -f "$(pwd -P)"/nix/hosts/linux/flake.nix ~/.config/nix/
