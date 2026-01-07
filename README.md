@@ -14,6 +14,8 @@ Features:
 
 - Backups with [borg](https://borgbackup.readthedocs.io/en/stable/)
 
+- Git config setup with [./git-setup.sh](git-setup.sh)
+
 # Table of contents
 1. [Minimal Office Dev Setup](#minimal-office-dev-setup)
    1. [Prerequisites](#prerequisites)
