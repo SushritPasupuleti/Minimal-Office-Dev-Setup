@@ -37,6 +37,14 @@ echo $(info "Setting up zshrc for brew...")
 
 # create ~/.zshrc if it doesn't exist
 touch ~/.zshrc
+
+# install oh-my-zsh if not installed
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	echo $(info "Installing Oh My Zsh...")
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+	echo $(success "Oh My Zsh installed successfully!")
+fi
+
 echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
@@ -45,12 +53,5 @@ echo 'alias z="zoxide"' >> ~/.zshrc
 echo 'alias c="clear"' >> ~/.zshrc
 echo 'alias nv="nvim"' >> ~/.zshrc
 echo $(success "zshrc set up successfully!")
-
-# install oh-my-zsh if not installed
-if [ ! -d "$HOME/.oh-my-zsh" ]; then
-	echo $(info "Installing Oh My Zsh...")
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-	echo $(success "Oh My Zsh installed successfully!")
-fi
 
 echo $(info "run \`source ~/.zshrc\` to load the new configuration.")
