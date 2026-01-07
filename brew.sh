@@ -24,13 +24,13 @@ function info {
 }
 
 echo $(info "Installing brew packages...")
-brew install ollama zellij fish postgresql@16 libpq@16 zoxide czg fzf jq git gh tmux ctags git-delta starship
+brew install ollama zellij fish postgresql@16 libpq@16 zoxide czg fzf jq git gh tmux ctags git-delta starship postman-cli
 echo $(success "Brew packages installed successfully!")
 echo $(info "Linking libpq...")
 brew link --force libpq@16
 echo $(success "libpq linked successfully!")
 echo $(info "Installing casks...")
-brew install --cask visual-studio-code iterm2 pgadmin4 font-fira-code-nerd-font microsoft-azure-storage-explorer
+brew install --cask visual-studio-code iterm2 pgadmin4 font-fira-code-nerd-font microsoft-azure-storage-explorer docker-desktop postman
 echo $(success "Casks installed successfully!")
 
 echo $(info "Setting up zshrc for brew...")
@@ -45,5 +45,12 @@ echo 'alias z="zoxide"' >> ~/.zshrc
 echo 'alias c="clear"' >> ~/.zshrc
 echo 'alias nv="nvim"' >> ~/.zshrc
 echo $(success "zshrc set up successfully!")
+
+# install oh-my-zsh if not installed
+if [ ! -d "$HOME/.oh-my-zsh" ]; then
+	echo $(info "Installing Oh My Zsh...")
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+	echo $(success "Oh My Zsh installed successfully!")
+fi
 
 echo $(info "run \`source ~/.zshrc\` to load the new configuration.")
