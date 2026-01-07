@@ -45,6 +45,9 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	echo $(success "Oh My Zsh installed successfully!")
 fi
 
+# add $HOME/.local/bin to PATH in ~/.zshrc if not already present
+echo '' >> ~/.zshrc
+echo 'PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc
 echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
@@ -52,6 +55,9 @@ echo 'alias lg="lazygit"' >> ~/.zshrc
 echo 'alias z="zoxide"' >> ~/.zshrc
 echo 'alias c="clear"' >> ~/.zshrc
 echo 'alias nv="nvim"' >> ~/.zshrc
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+echo 'eval "$(pyenv init - zsh)"' >> ~/.zshrc
 echo $(success "zshrc set up successfully!")
 
 echo $(info "run \`source ~/.zshrc\` to load the new configuration.")

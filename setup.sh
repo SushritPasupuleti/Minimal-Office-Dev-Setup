@@ -68,3 +68,4 @@ echo
 echo $(info "Run \'cd ~/.config/nix\` to change directory to the nix folder")
 echo $(info "Run \`nix profile install .\` to install the flake for the first time")
 echo $(info "Run \`nix profile upgrade --all\` to upgrade the existing flake")
+echo $(info "Setup your gitconfig by running \`git-setup.sh\`")
