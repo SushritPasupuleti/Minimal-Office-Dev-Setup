@@ -36,8 +36,8 @@
         golangci-lint
         air # go live reload
         # pyenv
-        python3
-        python3Packages.pip
+        # python3
+        # python3Packages.pip
         pipx
         # poetry
         fnm
