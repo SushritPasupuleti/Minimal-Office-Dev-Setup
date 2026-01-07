@@ -40,6 +40,10 @@ touch ~/.zshrc
 echo 'export PATH="/opt/homebrew/bin:$PATH"' >> ~/.zshrc
 echo 'eval "$(fnm env --use-on-cd --shell zsh)"' >> ~/.zshrc
 echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zshrc
+echo 'alias lg="lazygit"' >> ~/.zshrc
+echo 'alias z="zoxide"' >> ~/.zshrc
+echo 'alias c="clear"' >> ~/.zshrc
+echo 'alias nv="nvim"' >> ~/.zshrc
 echo $(success "zshrc set up successfully!")
 
 echo $(info "run \`source ~/.zshrc\` to load the new configuration.")
