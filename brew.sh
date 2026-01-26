@@ -25,6 +25,7 @@ function info {
 
 echo $(info "Installing brew packages...")
 brew install ollama zellij fish postgresql@16 libpq@16 zoxide czg fzf jq git gh tmux ctags git-delta starship postman-cli
+brew install anomalyco/tap/opencode
 echo $(success "Brew packages installed successfully!")
 echo $(info "Linking libpq...")
 brew link --force libpq@16
