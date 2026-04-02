@@ -25,7 +25,7 @@ function info {
 
 # --- Package Installation ---
 echo $(info "Installing brew packages...")
-brew install ollama zellij fish postgresql@16 libpq@16 zoxide czg fzf jq git gh tmux ctags git-delta starship postman-cli snyk-cli || { error "Failed to install brew packages"; exit 1; }
+brew install ollama zellij fish postgresql@16 libpq@16 zoxide czg fzf jq git gh tmux ctags git-delta starship postman-cli snyk-cli copilot-cli || { error "Failed to install brew packages"; exit 1; }
 brew install anomalyco/tap/opencode || { error "Failed to install anomalyco/tap/opencode"; exit 1; }
 brew install copilot-cli
 echo $(success "Brew packages installed successfully!")
