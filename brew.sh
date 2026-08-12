@@ -37,7 +37,7 @@ echo $(success "libpq linked successfully!")
 
 # --- Cask Installation ---
 echo $(info "Installing casks...")
-brew install --cask visual-studio-code iterm2 pgadmin4 font-fira-code-nerd-font microsoft-azure-storage-explorer docker-desktop postman || { error "Failed to install casks"; exit 1; }
+brew install --cask visual-studio-code iterm2 pgadmin4 font-fira-code-nerd-font microsoft-azure-storage-explorer docker-desktop postman claude-code || { error "Failed to install casks"; exit 1; }
 echo $(success "Casks installed successfully!")
 
 # --- Zsh Configuration ---

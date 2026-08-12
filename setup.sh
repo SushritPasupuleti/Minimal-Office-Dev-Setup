@@ -8,25 +8,45 @@ BLUE='\033[0;36m'
 NC='\033[0m' # No Color
 
 function error {
-    printf "${RED}$@${NC}\n"
+    printf "${RED}%s${NC}\n" "$*"
 }
 
 function success {
-    printf "${GREEN}$@${NC}\n"
+    printf "${GREEN}%s${NC}\n" "$*"
 }
 
 function warn {
-    printf "${YELLOW}$@${NC}\n"
+    printf "${YELLOW}%s${NC}\n" "$*"
 }
 
 function info {
-	printf "${BLUE}$@${NC}\n"
+	printf "${BLUE}%s${NC}\n" "$*"
 }
 
+if [[ "$OSTYPE" =~ ^darwin ]]; then
+	IS_MAC=true
+else
+	IS_MAC=false
+fi
+
 echo $(info "Install prerequisites...")
-sudo apt update
-sudo apt install curl xz-utils -y
-sudo apt install curl build-essential -y
+if [[ "$IS_MAC" == true ]]; then
+	echo $(info "Detected macOS operating system")
+	if ! xcode-select -p &>/dev/null; then
+		echo $(info "Installing Xcode Command Line Tools (finish the GUI prompt to continue)...")
+		xcode-select --install
+		until xcode-select -p &>/dev/null; do
+			sleep 5
+		done
+	fi
+else
+	echo $(info "Detected Linux operating system")
+	sudo apt update
+	# xz-utils/build-essential + the rest are required for pyenv to compile Python versions
+	sudo apt install -y curl xz-utils build-essential libssl-dev zlib1g-dev libbz2-dev \
+		libreadline-dev libsqlite3-dev libncursesw5-dev tk-dev libxml2-dev libxmlsec1-dev \
+		libffi-dev liblzma-dev
+fi
 echo $(success "Prerequisites installed successfully!")
 
 echo $(info "Installing Nix...")
@@ -44,9 +64,7 @@ echo $(success "Poetry installed successfully!")
 
 mkdir -p ~/.config/nix
 
-if [[ "$OSTYPE" =~ ^darwin ]]
-then
-	echo $(info "Detected macOS operating system")
+if [[ "$IS_MAC" == true ]]; then
 	echo $(info "Installing Homebrew...")
 	/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 	echo $(success "Homebrew installed successfully!")
@@ -57,13 +75,12 @@ then
 
 	echo $(info "Run \`brew.sh\` to install Homebrew packages")
 else
-	echo $(info "Detected Linux operating system")
 	# cp -f "$(pwd -P)"/nix/hosts/linux/flake.nix ~/.config/nix/
 	ln -sf "$(pwd -P)"/nix/hosts/linux/flake.nix ~/.config/nix/flake.nix
 fi
 
 echo $(success "Finished copying flake.nix to ~/.config/nix")
-echo 
+echo
 echo $(info "Run \'cd ~/.config/nix\` to change directory to the nix folder")
 echo $(info "Run \`nix profile install .\` to install the flake for the first time")
 echo $(info "Run \`nix profile upgrade --all\` to upgrade the existing flake")
